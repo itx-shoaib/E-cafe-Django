@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %}E-Cafe{% endblock%}
+
+{% block body %}
+    {% load static %}
+    <!-- Home sections start here  -->
+
+    <section class="home" id="home">
+        <div class="content">
+            <h3>Food made with love</h3>
+            <p>E-Café Restaurant now offers contactless delivery by introducing an E-commerce website.You can now choose to order from restaurant website.It’s just one click away. It’s fast, easy, and comfortable. No misunderstandings and no frustrations, less hassle for you.</p>
+            <a href="/popular" class="btn">Order Now</a>
+        </div>
+
+        <div class="image">
+            <img src="{% static 'images/home-img.png' %}" alt="">
+        </div>
+    </section>
+
+    <!-- Home sections end here  -->
+
+
+
+    <!-- step section start here  -->
+
+    <section class="step" id="step">
+
+        <div class="box">
+            <img src="{% static 'images/step-1.jpg' %}" alt="">
+            <h3>Choose your favorite food</h3>
+        </div>
+
+        <div class="box">
+            <img src="{% static 'images/step-2.jpg' %}" alt="">
+            <h3>Free and fast delivery</h3>
+        </div>
+
+        <div class="box">
+            <img src="{% static 'images/step-3.jpg' %}" alt="">
+            <h3>Easy payments methods</h3>
+        </div>
+
+        <div class="box">
+            <img src="{% static 'images/step-4.jpg' %}" alt="">
+            <h3>And finally enjoy your food</h3>
+        </div>
+    </section>
+
+    <!-- step section end here  -->
+
+
+    <!-- Review section starts here  -->
+
+    <section class="review" id="review">
+        <h1 class="heading">Our customer <span>Review</span></h1>
+
+        <div class="box-container">
+            
+            <div class="box">
+                <img src="{% static 'images/pic1.png' %}" alt="">
+                <h3>Customer 1</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p>This is the burger that I had for the second time within a week of trying it first time. So that's how good it is.</p>
+            </div>
+
+            <div class="box">
+                <img src="{% static 'images/pic2.png' %}" alt="">
+                <h3>Customer 2</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p>I simply love their pizzas
+                    The cheese the crust and the flavours all are perfectly amazing</p>
+            </div>
+
+            <div class="box">
+                <img src="{% static 'images/pic3.png' %}" alt="">
+                <h3>Customer 3</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p>The quality of burgers  is so juicy, tempting, and mouth watering . I had It's four beef patty layers with mozzarella cheese and they delivered food on time really good service.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Review section end here  -->
+
+{% endblock %} 

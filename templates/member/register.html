@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %} Speciality - Ecafe {% endblock %}
+
+
+{% block style %}
+
+.form-container{
+    padding: 12rem 9%;
+}
+
+.form-container form{
+   max-width: 50rem;
+   margin:0 auto;
+   border:.2rem solid black;
+   padding:2rem;
+   text-align: center;
+}
+
+.form-container form h3{
+   margin-bottom: 1rem;
+   font-size: 2.5rem;
+   text-transform: uppercase;
+   color:black;
+}
+
+.form-container form .box{
+   margin:1rem 0;
+   padding:1.4rem;
+   color:black;
+   border:.2rem solid black;
+   font-size: 1.8rem;
+   width: 100%;
+}
+
+.form-container form p{
+   margin-top: 1.5rem;
+   font-size: 2rem;
+   color: black;
+}
+
+.form-container form p a{
+   font-size: 2rem;
+   color:var(--red);
+}
+
+.form-container form p a:hover{
+   color:black;
+}
+
+
+{% endblock %}
+
+{% block body %}
+
+<section class="form-container">
+
+   <form action="/member/register" method="post">
+   {% csrf_token %}
+      <h3>register now</h3>
+      <input type="text"  name="username" id="username" placeholder="enter your username" class="box" required>
+      <input type="text"  name="firstname" id="firstname" placeholder="enter your firstname" class="box" required>
+      <input type="text"  name="secondname" id="secondname" placeholder="enter your secondname" class="box" required>
+      <input type="email" name="email" id="email" placeholder="enter your email" class="box" required >
+      {% comment %} <input type="number" placeholder="enter your number" required class="box" id="number" name="number"> {% endcomment %}
+      <input type="password" required name="pass1" id="pass1" placeholder="enter your password" class="box">
+      <input type="password" required name="pass2" id="pass2" placeholder="confirm your password" class="box">
+      <input type="submit" value="regisetr now" class="btn" name="submit">
+      <p>already have an account? <a href="/member/profile">login now</a></p>
+   </form>
+
+</section>
+
+
+
+{% endblock %}

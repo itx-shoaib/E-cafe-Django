@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block title %} Speciality - Ecafe {% endblock %}
+
+
+{% block style %}
+
+.speciality{
+    padding: 12rem 9%;
+}
+
+{% endblock %}
+
+{% block body %}
+
+{% load static %}
+    <!-- Speciality section start here -->
+
+    <section class="speciality" id="speciality">
+
+        <h1 class="heading">our <span>speciality</span></h1>
+
+        <div class="box-container">
+            <!-- Tasty Burger box  -->
+            <div class="box">
+                <img class='image' src="{% static 'images/s-img-1.jpg' %}" alt="">
+                <div class="content">
+                    <img src="{% static 'images/s-1.png' %}" alt="">
+                    <h3>Tasty Burger</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae at quibusdam laborum, asperiores soluta fugit a earum consequuntur unde ratione!</p>
+                </div>
+            </div>
+
+            <!-- Tasty Pizza box  -->
+            <div class="box">
+                <img class='image'src="{% static 'images/s-img-2.jpg' %}" alt="">
+                <div class="content">
+                    <img src="{% static 'images/s-2.png' %}" alt="">
+                    <h3>Tasty Pizza</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae at quibusdam laborum, asperiores soluta fugit a earum consequuntur unde ratione!</p>
+                </div>
+            </div>
+
+            <!-- Cold ice-cream box  -->
+            <div class="box">
+                <img class='image'src="{% static 'images/s-img-3.jpg' %}" alt="">
+                <div class="content">
+                    <img src="{% static 'images/s-3.png' %}" alt="">
+                    <h3>Cold ice-cream</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae at quibusdam laborum, asperiores soluta fugit a earum consequuntur unde ratione!</p>
+                </div>
+            </div>
+
+            <!-- Cold drinks box  -->
+            <div class="box">
+                <img class='image'src="{% static 'images/s-img-4.jpg' %}" alt="">
+                <div class="content">
+                    <img src="{% static 'images/s-4.png' %}" alt="">
+                    <h3>Cold drinks</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae at quibusdam laborum, asperiores soluta fugit a earum consequuntur unde ratione!</p>
+                </div>
+            </div>
+
+            <!-- Tasty sweets box  -->
+            <div class="box">
+                <img class='image'src="{% static 'images/s-img-5.jpg' %}" alt="">
+                <div class="content">
+                    <img src="{% static 'images/s-5.png' %}" alt="">
+                    <h3>Tasty sweets</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae at quibusdam laborum, asperiores soluta fugit a earum consequuntur unde ratione!</p>
+                </div>
+            </div>
+
+            <!-- Healthy Breakfasts box  -->
+            <div class="box">
+                <img class='image'src="{% static 'images/s-img-6.jpg' %}" alt="">
+                <div class="content">
+                    <img src="{% static 'images/s-6.png' %}" alt="">
+                    <h3>Healthy Breakfasts</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae at quibusdam laborum, asperiores soluta fugit a earum consequuntur unde ratione!</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Speciality section end here -->
+
+
+{% endblock %}

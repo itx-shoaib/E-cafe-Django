@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+
+{% block title %} Speciality - Ecafe {% endblock %}
+
+
+{% block style %}
+
+.checkout{
+    padding: 12rem 9%;
+}
+
+.checkout form{
+   max-width: 50rem;
+   margin:0 auto;
+   border:.2rem solid black;
+   padding:2rem;
+}
+
+.checkout form .cart-items{
+   background-color: black;
+   padding:2rem;
+}
+
+.checkout form .cart-items h3{
+   font-size: 2.5rem;
+   color:white;
+   text-transform: capitalize;
+   margin-bottom: 2rem;
+}
+
+.checkout form .cart-items p{
+   display: flex;
+   gap:1.5rem;
+   align-items: center;
+   justify-content: space-between;
+   margin:1rem 0;
+   line-height: 1.5;
+   font-size: 2rem;
+}
+
+.checkout form .cart-items p .name{
+   color:white;
+}
+
+.checkout form .cart-items p .price{
+   color:yellow;
+}
+
+.checkout form .cart-items .grand-total{
+   background-color:white;
+   padding:1rem;
+}
+
+.checkout form .cart-items .grand-total .name{
+   color:black;
+}
+
+.checkout form .cart-items .grand-total .price{
+   color:var(--red);
+}
+
+.checkout form .user-info h3{
+   font-size: 2.5rem;
+   margin: 2rem 0;
+   color:black;
+   text-transform: capitalize;
+}
+
+.checkout form .user-info p{
+   line-height: 1.5;
+   font-size: 2rem;
+   margin:1rem 0;
+}
+
+.checkout form .user-info p span{
+   color:black;
+}
+
+.checkout form .user-info p i{
+   color:white;
+   margin-right: .7rem;
+}
+
+.checkout form .user-info .box{
+   width: 100%;
+   border:.2rem solid black;
+   padding:1.4rem;
+   color:black;
+   font-size: 1.8rem;
+   margin-top: 2rem;
+}
+
+.checkout form .order-btn{
+   margin-top: 2rem;
+   width: 100%;
+   background-color:black;
+   color:white;
+}
+.checkout form .box{
+   margin:1rem 0;
+   padding:1.4rem;
+   color:black;
+   border:.2rem solid black;
+   font-size: 1.8rem;
+   width: 100%;
+}
+
+{% endblock %}
+
+{% block body %}
+
+{% load static %}
+
+
+<section class="checkout">
+
+   <h3 class="heading">checkout</h3>
+
+   <h1 class="heading">order summary</h1>
+{% if user.is_authenticated %}
+   <form action="/checkout" method="post"> {% csrf_token %}
+
+<!--   <div  class="cart-items">-->
+<!--   </div>-->
+
+      <div id="items" class="cart-items" >
+         <h3>cart items</h3>
+
+<!--         <a href="/cart" class="btn">view cart</a>-->
+      </div>
+<!--      <p class="grand-total"><span class="name">grand total : Rs.</span> <span id="totalPrice" class="price"></span></p>-->
+
+      <div class="user-info">
+         <h3>your info</h3>
+         <p><i class="fas fa-user"></i> <span>{{request.user.username}}</span></p>
+<!--         <p><i class="fas fa-phone"></i> <span>1234567890</span></p>-->
+         <p><i class="fas fa-envelope"></i> <span>{{request.user.email}}</span></p>
+         <h3>delivery address</h3>
+      </div>
+
+<!--         <p class="address"><i class="fas fa-map-marker-alt"></i> <span>Address will be here</span></p>-->
+         <div class="user-info">
+
+         <input type="hidden" name="itemsJson" id="itemsJson" >
+         <input type="hidden" name="username" id="username" value="{{request.user.username}}" >
+         <input type="hidden" name="email" id="email" value="{{request.user.email}}" >
+         <input type="text" name="address" id="address" placeholder="Enter your address here" class="box" required>
+         <input type="number" name="phone" id="phone" placeholder="Enter your phone number here" class="box" required>
+
+         <input type="submit" class="btn" value="Place Order">
+   </form>
+      {% else %}
+   <form>
+      <div class="user-info">
+         <h3>User is not authenticated,Please Login or register!</h3>
+         <a href="/member/profile" class="btn">Login</a>
+         <a href="/member/register" class="btn">Register</a>
+      </div>
+   </form>
+      {% endif %}
+
+
+</section>
+
+    {% block js %}
+   <script src="{% static 'js/checkout.js' %}"></script>
+    {% endblock %}
+
+{% endblock %}

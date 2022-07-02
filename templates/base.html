@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock%}</title>
+    {% load static %}
+    <!-- CSS style link  -->
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+    <!-- cdnjs Font awesome and icon link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <style>
+        {% block style %}
+
+        {% endblock %}
+    </style>
+
+</head>
+<body>
+
+    <!-- header section starts here -->
+
+    <header>
+        <a href="/" class="logo"><i class="fas fa-utensils"></i>E-Cafe</a>
+
+        <div id="menu-bar" class="fas fa-bars"></div>
+
+        <nav class="navbar">
+            <a href="/">Home</a>
+            <a href="/speciality">Speciality</a>
+            <a href="/popular">Menu</a>
+            <a href="/gallery">Gallery</a>
+            <a type="button" class="fas fa-shopping-cart" id = "popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span id="cart">0</span></a>
+            {% if user.is_authenticated %}
+            <a href="/member/profile">{{request.user.username}}</a>
+            <a href="/member/logout">Logout</a>
+            {% else %}
+            <a href="/member/profile" class="fas fa-user"></a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <!-- header section end here -->
+
+    {% block body %} {% endblock %}
+
+    <!-- Footer section start here  -->
+
+    <section class="footer" id="footer">
+
+        <h1 class="contact"><span>Contact</span> us</h1>
+
+        <div class="share">
+            <a href="#" class="btn">Facebook</a>
+            <a href="#" class="btn">Twitter</a>
+            <a href="#" class="btn">Linkedin</a>
+            <a href="#" class="btn">Instagram</a>
+            <a href="#" class="btn">Pinterest</a>
+        </div>
+    </section>
+
+
+    <!-- Footer section end here  -->
+
+    <!-- loader container start here  -->
+
+    <div class="loader-container">
+        <img src="{% static 'images/loader.gif' %}" alt="">
+    </div>
+
+    <!-- loader container end here  -->
+
+<!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+    <script src="{% static 'js/script.js' %}"></script>
+    {% block js %}
+
+    {% endblock %}
+</body>
+</html>
