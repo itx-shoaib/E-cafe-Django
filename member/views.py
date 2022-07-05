@@ -17,11 +17,12 @@ def register(request):
         pass1 = request.POST['pass1']
         pass2 = request.POST['pass2']
 
-        myuser = User.objects.create_user(username, email, pass1)
-        myuser.first_name = firstname
-        myuser.last_name = secondname
-        myuser.save()
-        return redirect('index')
+        if(pass1==pass2):
+            myuser = User.objects.create_user(username, email, pass1)
+            myuser.first_name = firstname
+            myuser.last_name = secondname
+            myuser.save()
+        return redirect('profile')
 
     return render(request, 'member/register.html')
 
@@ -32,7 +33,7 @@ def handleLogin(request):
         user = authenticate(username = username , password = password)
         if user is not None:
             login(request,user)
-            return redirect('index')
+            return redirect('popular')
         
         else:
             return HttpResponse('404 Not found')

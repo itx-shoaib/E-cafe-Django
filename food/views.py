@@ -1,16 +1,10 @@
-from django.shortcuts import render , HttpResponse , redirect
-from django.contrib.auth.models import User
-from django.contrib.auth import authenticate,login,logout
+from django.shortcuts import render ,  redirect
 from .models import Popular,Order
 
 # Create your views here.
 def index(request):
     return render(request, 'food/index.html')
 
-def order(request):
-    if request.method == 'POST':
-        pass
-    return redirect('index')
 
 def speciality(request):
     return render(request, 'food/speciality.html')
@@ -18,8 +12,6 @@ def speciality(request):
 def popular(request):
     popular = Popular.objects.all()
     content = {'popular':popular}
-    # if User.is_anonymous:
-    #     return render(request,'member/profile.html')
     return render(request, 'food/popular.html', content)
 
 def gallery(request):
